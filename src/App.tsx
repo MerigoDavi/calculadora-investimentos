@@ -1,4 +1,3 @@
-// src/App.tsx
 import InvestmentCalculator from './components/InvestmentCalculator';
 
 function App() {

@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# Calculadora de Investimentos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web para simular e planejar investimentos, analisando diferentes cenários e calculando o valor futuro ou os aportes necessários para atingir um objetivo financeiro.
 
-Currently, two official plugins are available:
+**[Acesse a demonstração ao vivo](https://MerigoDavi.github.io/calculadora-investimentos)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Captura de tela da aplicação](./public/captura_aplicacao.png) <!-- Adicionar um screenshot aqui seria ideal -->
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+- **Dois Modos de Cálculo**:
+  - **Calcular Valor Futuro**: Projete o crescimento do seu patrimônio com base em aportes iniciais e mensais.
+  - **Atingir Objetivo**: Descubra o valor do aporte mensal necessário para alcançar uma meta financeira específica.
+- **Análise de Cenários**: Simule os resultados em três cenários distintos: pessimista, realista e otimista, com taxas de juros configuráveis.
+- **Visualização Gráfica Detalhada**:
+  - **Gráfico de Composição**: Acompanhe a evolução do valor inicial, aportes e juros ao longo do tempo.
+  - **Gráfico de Pizza**: Visualize a composição final do seu patrimônio (total investido vs. total em juros).
+- **Granularidade Ajustável**: Altere a visualização do gráfico de composição para períodos mensais, bimestrais, trimestrais, semestrais ou anuais.
+- **Resumo Completo**: Obtenha um resumo claro com valor final bruto, total de juros, imposto de renda estimado e valor líquido.
+- **Compartilhamento de Simulação**: Compartilhe facilmente suas simulações através de um link único que armazena todos os parâmetros.
+- **Tema Claro e Escuro**: Interface adaptável para preferência de tema do usuário.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Frontend**:
+  - [React](https://react.dev/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Vite](https://vitejs.dev/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+- **Componentes UI**:
+  - [shadcn/ui](https://ui.shadcn.com/)
+  - [Radix UI](https://www.radix-ui.com/)
+- **Visualização de Dados**:
+  - [Chart.js](https://www.chartjs.org/)
+  - [react-chartjs-2](https://react-chartjs-2.js.org/)
+- **Linting & Formatação**:
+  - [ESLint](https://eslint.org/)
+- **Deployment**:
+  - [GitHub Pages](https://pages.github.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Como Executar o Projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Siga os passos abaixo para executar a aplicação em seu ambiente local.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/en) (versão 18 ou superior)
+- [npm](https://www.npmjs.com/) (geralmente instalado com o Node.js)
+
+### Passos
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/MerigoDavi/calculadora-investimentos.git
+    ```
+
+2.  **Navegue até o diretório do projeto:**
+    ```bash
+    cd calculadora-investimentos
+    ```
+
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+4.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Abra o navegador:**
+    Acesse `http://localhost:5173` (ou a porta indicada no seu terminal) para ver a aplicação.
+
+---
+
+## 📜 Scripts Disponíveis
+
+No diretório do projeto, você pode executar:
+
+- `npm run dev`: Inicia a aplicação em modo de desenvolvimento.
+- `npm run build`: Compila a aplicação para produção na pasta `dist`.
+- `npm run lint`: Executa o linter para verificar erros no código.
