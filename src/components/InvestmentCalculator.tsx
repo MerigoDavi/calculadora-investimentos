@@ -42,7 +42,7 @@ const currencyFormatter = new Intl.NumberFormat('pt-BR', { style: 'currency', cu
 const compositionOptions = {
     plugins: { legend: { reverse: true } },
     scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: (v: any) => currencyFormatter.format(v) } } },
-    interaction: { mode: 'index', intersect: false },
+    interaction: { mode: 'index' as const, intersect: false },
     maintainAspectRatio: false,
 };
 
