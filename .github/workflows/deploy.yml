@@ -1,0 +1,47 @@
+# .github/workflows/deploy.yml
+
+name: Deploy to GitHub Pages
+
+# Executa este workflow sempre que houver um push na branch 'main'
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permite que o workflow tenha permissões para escrever na branch gh-pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Usa a última versão do Ubuntu como ambiente
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4 # 1. Baixa o código do seu repositório
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4 # 2. Configura o ambiente Node.js
+        with:
+          node-version: '20' # Use uma versão LTS do Node
+          cache: 'npm'
+
+      - name: Install Dependencies 📦
+        run: npm install # 3. Instala todas as dependências do projeto
+
+      - name: Build Project 🏗️
+        run: npm run build # 4. Roda o script de build, que cria a pasta 'dist'
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # 5. Pega o conteúdo da pasta 'dist' e o prepara para deploy
+
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4 # 6. Publica o conteúdo na GitHub Pages
